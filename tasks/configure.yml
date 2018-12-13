@@ -1,0 +1,14 @@
+
+- block:
+
+  - name: install /var/lib/lacework/config/config.json
+    template:
+      src: "lacework-config.json.j2"
+      dest: "/var/lib/lacework/config/config.json"
+      mode: 0644
+      owner: root
+      group: root
+    notify: restart lacework
+
+    tags:
+     - lacework

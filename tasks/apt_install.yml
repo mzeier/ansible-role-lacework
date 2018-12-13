@@ -1,0 +1,23 @@
+---
+- block:
+
+  - name: apt dependencies
+    apt: name=apt-transport-https state=present
+
+  - name: Lacework apt repository key
+    apt_key:
+      keyserver: keyserver.ubuntu.com
+      id: 18E76630
+      state: present
+
+  - name: Add Lacework apt repository
+    apt_repository:
+      repo: "deb {{ lacework_repo }}/ubuntu/ {{ ansible_distribution_release }} main"
+      state: present
+      update_cache: yes
+
+  - name: install Lacework agent
+    apt: name=lacework state=latest
+
+  tags:
+    - lacework

@@ -1,0 +1,10 @@
+---
+#
+
+---
+lacework_accessToken: "{{ lookup('credstash', 'lacework.accessToken', region='us-west-2', profile_name='sunnylabs') }}"
+
+# repository defaults
+lacework_repo: "https://packages.lacework.net"
+wavefront_repo_gpgkey: "https://packagecloud.io/wavefront/proxy/gpgkey"
+wavefront_rpm_repo_url: "https://packagecloud.io/wavefront/proxy/el"
